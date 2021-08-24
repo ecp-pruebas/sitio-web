@@ -49,17 +49,17 @@ Debido a que los precios de envío cambian considerablemente dependiendo del lug
 <h3><a name="pago">Comprar en línea</a></h3>
 <div class="indice">
 <ul>
-	<li>PayPal cobra una comisión del 4% + $4 MXN por transacción. Debido a ello, los precios pagando a través de su servicio tienen un ligero incremeto. Si prefieres pagar el precio normal, puedes hacer un depósito o tranferencia bancaria. Para proporcionarte la CLABE y el número de cuenta, envía un correo a: elcineprobablemente.contacto@gmail.com</li>
+	<li>PayPal cobra una comisión del 4% + $4 MXN por transacción. Debido a ello, los precios para pagar a través de su servicio tienen un ligero incremeto. Si prefieres pagar el precio normal, puedes hacer un depósito o tranferencia bancaria. Para proporcionarte la CLABE y el número de cuenta, envía un correo a: elcineprobablemente.contacto@gmail.com</li>
 	<li>Si quieres comprar más de un ejemplar por envío, escríbenos un correo electrónico para ofrecerte tarifas convenientes.</li>
-	<li>Si quieres que la dirección de envío sea diferente a la de facturación, avísanos por correo electrónico.</li>
+	<li>Si quieres que la dirección de envío sea diferente a la de facturación, escríbenos o anótalo en los comentarios del pedido.</li>
 </ul>
 </div>
 
 <div id="smart-button-container">
       <div style="text-align: center;">
         <div style="margin-bottom: 1.25rem;">
-          <p>Preventa - Un ejemplar de la revista</p>
-          <select id="item-options"><option value="Entrega personal en CDMX" price="213">Entrega personal en CDMX - 213 MXN</option><option value="Envío en CDMX" price="286">Envío en CDMX - 286 MXN</option><option value="Envío al interior de la república por ESTAFETA" price="369">Envío al interior de la república por ESTAFETA - 369 MXN</option><option value="Envío al interior de la república por CORREOS" price="279">Envío al interior de la república por CORREOS - 279 MXN</option></select>
+          <p>Preventa-un ejemplar de la revista</p>
+          <select id="item-options"><option value="Entrega personal en CDMX" price="213">Entrega personal en CDMX - 213 MXN</option><option value="Envío en CDMX" price="286">Envío en CDMX - 286 MXN</option><option value="Envío al interior de la república con ESTAFETA" price="369">Envío al interior de la república con ESTAFETA - 369 MXN</option><option value="Evío al interior de la república con Correos de México" price="279">Evío al interior de la república con Correos de México - 279 MXN</option></select>
           <select style="visibility: hidden" id="quantitySelect"></select>
         </div>
       <div id="paypal-button-container"></div>
@@ -75,7 +75,7 @@ Debido a que los precios de envío cambian considerablemente dependiendo del lug
     if (!isNaN(quantity)) {
       quantitySelect.style.visibility = "visible";
     }
-    var orderDescription = 'Preventa - Un ejemplar de la revista';
+    var orderDescription = 'Preventa-un ejemplar de la revista';
     if(orderDescription === '') {
       orderDescription = 'Item';
     }
@@ -163,7 +163,6 @@ Debido a que los precios de envío cambian considerablemente dependiendo del lug
   }
   initPayPalButton();
     </script>
-
 
 
 <br>
