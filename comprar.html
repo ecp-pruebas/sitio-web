@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Comprar</title>
+<link rel="stylesheet" href="./style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+</head>
+
+<header>
+  <ul class="encabezado">
+      <li><a href="./index.html">El Cine Probablemente</a></li>
+      <li><a href="./actual.html">Número actual</a></li>
+      <li><a href="./anteriores.html">Números anteriores</a></li>
+      <li><a href="./comprar.html">Comprar</a></li>
+      <li><a href="./contacto.html">Contacto</a></li>
+  </ul>
+</header>
+
+<br>
+
+<body>
+
+<h2>Preventa del segundo número</h2>
+
+	<p>Actualmente está en curso la venta anticipada de los ejemplares impresos del segundo número de nuestra revista. El precio de preventa es preferencial, ya que es menor que el precio normal. La preventa termina el [CONFIRMAR FECHA]. Al día siguiente comienza la venta normal de los ejemplares restantes. Hay un límite de 120 ejemplares para la preventa.</p>
+
+	<p>Aceptamos pagos a través de transferencias electrónicas, depósitos bancarios y PayPal. Hacemos envíos en la Ciudad de México, al interior de la república mexicana y al resto del mundo.</p>
+
+	<br>
+
+<h3>Fecha de entrega y precio</h3>
+
+	<p>Los ejemplares comprados durante la preventa se entregarán a partir del [CONFIRMAR FECHA], cuando también comienza la venta normal.</p>
+
+	<p>Cada ejemplar tiene un precio de $240 MXN en México y de $12,00 USD para las ventas internacionales (para éstas sólo aceptamos pagos con PayPal). Los costos de envío son adicionales.</p>
+
+	<br>
+
+<h3>Métodos de pago</h3>
+
+<h4>Transferencia electrónica o depósito bancario.</h4> 
+
+<p>Envíanos los siguientes datos a nuestra cuenta de correo (elcineprobablemente.contacto@gmail.com) o por mensaje a nuestras redes sociales para proporcionarte la CLABE interbancaria:</p>
+
+<div class="indice">
+	<ul>	
+		<li>nombre</li>
+		<li>cuántos ejemplares quieres comprar</li>
+		<li>si recogerás tu ejemplar presencialmente o a qué dirección quieres que lo enviemos</li>
+	</ul>
+</div>
+
+<h4>PayPal</h4>
+<p>Realiza tu compra en el botón que está más abajo en esta página. <a href="#boton">Aquí.</a></p>
+
+	<br>
+
+<h3>Costos de envío</h3>
+
+
+<h4>Ciudad de México</h4>
+<p>Si la entrega es presencial, no habrá costo de envío. Entregaremos la revista en los eventos de presentación y en algunos puntos seleccionados de la ciudad: la Cineteca, el parque Las Américas (colonia Narvarte) y otros que anunciaremos cuando comience la venta normal. El envío a una dirección particular tiene un costo de $75,00 MXN y tarda de 3 a 5 días en llegar.</p>
+
+<h4>Interior de la república mexicana</h4>
+<p>Si hacemos el envío por Correos de México, tiene un costo de $75,00 MXN y tarda entre 14 y 21 días en llegar. Si hacemos el envío por Redpack, tiene un costo de $110,00 MXN y tarda entre 3 y 5 días en llegar.</p>
+
+<h4>Internacional</h4>
+<p>Hacemos los envíos por correo. Debido a que las tarifas y los tiempos de entrega varían de acuerdo a cada país, no podemos ofrecer un precio uniforme. Escríbenos un correo a nuestra dirección (elcineprobablemente.contacto@gmail.com) comunicándonos cuántos ejemplares quieres y en qué país te encuentras para ofrecerte un costo específico.</p>
+
+
+	<br>
+
+<h3 id="boton">Pagar con PayPal</h3>
+
+<p>Nota que los precios mediante este método de pago se incrementan ligeramente debido a las comisiones que cobra PayPal</p>
+
+
+<div id="smart-button-container">
+      <div style="text-align: center;">
+        <div style="margin-bottom: 1.25rem;">
+          <p>Preventa de 1 ejemplar impreso de ECP2</p>
+          <select id="item-options"><option value="Entrega presencial en CDMX" price="240">Entrega presencial en CDMX - $240,00 MXN</option><option value="Envío en CDMX" price="335">Envío en CDMX - $335,00 MXN</option><option value="Envío al interior de la república mexicana (Correos)" price="335">Envío al interior de la república mexicana (Correos) - $335,00 MXN</option><option value="Envío al interior de la república mexicana (Redpack)" price="370">Envío al interior de la república mexicana (Redpack) - $370,00 MXN</option></select>
+          <select style="visibility: hidden" id="quantitySelect"></select>
+        </div>
+      <div id="paypal-button-container"></div>
+      </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=ATxli_7uXmlStmK4HajHEKaZCFGqzaDsxybKY66R3UvfVO6D3awr6KcgBb5ifPPd49O1xgv1BhpssWSC&enable-funding=venmo&currency=MXN" data-sdk-integration-source="button-factory"></script>
+    <script>
+      function initPayPalButton() {
+        var shipping = 0;
+        var itemOptions = document.querySelector("#smart-button-container #item-options");
+    var quantity = parseInt();
+    var quantitySelect = document.querySelector("#smart-button-container #quantitySelect");
+    if (!isNaN(quantity)) {
+      quantitySelect.style.visibility = "visible";
+    }
+    var orderDescription = 'Preventa de 1 ejemplar impreso de ECP2';
+    if(orderDescription === '') {
+      orderDescription = 'Item';
+    }
+    paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'black',
+        layout: 'vertical',
+        label: 'paypal',
+        
+      },
+      createOrder: function(data, actions) {
+        var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
+        var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
+        var tax = (0 === 0 || false) ? 0 : (selectedItemPrice * (parseFloat(0)/100));
+        if(quantitySelect.options.length > 0) {
+          quantity = parseInt(quantitySelect.options[quantitySelect.selectedIndex].value);
+        } else {
+          quantity = 1;
+        }
+
+        tax *= quantity;
+        tax = Math.round(tax * 100) / 100;
+        var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
+        priceTotal = Math.round(priceTotal * 100) / 100;
+        var itemTotalValue = Math.round((selectedItemPrice * quantity) * 100) / 100;
+
+        return actions.order.create({
+          purchase_units: [{
+            description: orderDescription,
+            amount: {
+              currency_code: 'MXN',
+              value: priceTotal,
+              breakdown: {
+                item_total: {
+                  currency_code: 'MXN',
+                  value: itemTotalValue,
+                },
+                shipping: {
+                  currency_code: 'MXN',
+                  value: shipping,
+                },
+                tax_total: {
+                  currency_code: 'MXN',
+                  value: tax,
+                }
+              }
+            },
+            items: [{
+              name: selectedItemDescription,
+              unit_amount: {
+                currency_code: 'MXN',
+                value: selectedItemPrice,
+              },
+              quantity: quantity
+            }]
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(orderData) {
+          
+          // Full available details
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+          // Show a success message within this page, e.g.
+          const element = document.getElementById('paypal-button-container');
+          element.innerHTML = '';
+          element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+          // Or go to another URL:  actions.redirect('thank_you.html');
+
+        });
+      },
+      onError: function(err) {
+        console.log(err);
+      },
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+    </script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
